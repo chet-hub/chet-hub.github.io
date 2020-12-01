@@ -8,23 +8,42 @@
 <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
 <link rel="stylesheet" href="assert/font-awesome/css/font-awesome.min.css">
 <script>
-  window.addEventListener('hashchange', function(){
-    if(location.hash != "#"){
+  window.addEventListener('hashchange', function () {
+    if (location.hash != "#") {
       location.reload()
     }
   }, false);
 </script>
 <style>
   body {
-    font-family: Nunito,sans-serif
+    font-family: Nunito, sans-serif
   }
-  p::-moz-selection { 
-    color: white; 
+
+  p::-moz-selection {
+    color: white;
     background-color: #ee983d;
   }
-  p::selection { 
-    color: white; 
+
+  p::selection {
+    color: white;
     background-color: #ee983d;
+  }
+
+  .widthController {
+    margin: auto auto;
+    width: 97%;
+  }
+
+  @media screen and (min-width: 780px) {
+    .widthController {
+      width: 80%;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .widthController {
+      max-width: 80%;
+      width: 1280px;
+    }
   }
 </style>
-

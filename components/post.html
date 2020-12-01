@@ -2,7 +2,7 @@
 
 <script id="template" type="x-tmpl-mustache">
   {{#posts}}
-      <div class="post">
+      <div class="post widthController">
         <p class="title">
           {{title}}
         </p>
@@ -17,8 +17,8 @@
   {{/posts}}
 </script>
 
-<div id="postHeader" class='md'></div>
-<div id="target" class='md'></div>
+<div id="postHeader" class='md widthController'></div>
+<div id="target" class='md widthController'></div>
 
 <script>
 const data = {posts:<include src="post/posts.json" />}
@@ -45,7 +45,7 @@ const data = {posts:<include src="post/posts.json" />}
 
 
 
-<div style="width:80%;margin:80px auto auto auto" id="disqus_thread"></div>
+<div id="disqus_thread" class="widthController"></div>
 <script>
     /**
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
