@@ -16,7 +16,12 @@
       </div>
   {{/posts}}
 </script>
-
+<style>
+  .post {
+    border-bottom: 0px solid white;
+    margin-bottom: 0px;
+  }
+</style>
 <div id="postHeader" class='md widthController'></div>
 <div id="target" class='md widthController'></div>
 
@@ -45,7 +50,7 @@ const data = {posts:<include src="post/posts.json" />}
 
 
 
-<div id="disqus_thread" class="widthController"></div>
+<div id="disqus_thread" class="comment widthController"></div>
 <script>
     /**
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
