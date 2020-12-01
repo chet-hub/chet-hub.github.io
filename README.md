@@ -13,7 +13,7 @@ Create a persona for one reader of your blog and answer the following questions.
 
 1. What is your reader’s name?
 
-  Feifei Wong
+    Feifei Wong
 
 2. What demographic do they fall into?    
 
