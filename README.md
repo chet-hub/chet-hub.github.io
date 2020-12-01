@@ -11,12 +11,29 @@
 ### Audience / Persona:
 Create a persona for one reader of your blog and answer the following questions.
 
-1. What is your reader’s name?             Feifei Wong
-2. What demographic do they fall into?     Junior Software Engineer
-3. Where do they live?                     Winnipeg Canada
-4. What is their job/role?                 Labour
-5. What do they enjoy for fun?             Technical experience
-6. Why do they read your blog?             like the technical articles
+1. What is your reader’s name?
+
+  Feifei Wong
+
+2. What demographic do they fall into?    
+
+    Junior Software Engineer
+
+3. Where do they live?   
+
+    Winnipeg Canada
+
+4. What is their job/role?    
+
+    Labour
+
+5. What do they enjoy for fun?  
+
+    Technical experience
+
+6. Why do they read your blog?   
+
+    like the technical articles
 
 ### When you write and edit your blog posts, consider writing for your persona.
 
