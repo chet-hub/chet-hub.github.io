@@ -1,0 +1,66 @@
+<include src="components/post.css.html" />
+
+<script id="template" type="x-tmpl-mustache">
+  {{#posts}}
+      <div class="post">
+        <p class="title">
+          {{title}}
+        </p>
+        <p class="description">
+          {{author}} / {{date}}
+        </p>
+        <!-- <img src="{{image}}" alt="" srcset=""> -->
+        <!-- <p class='summary'>
+          {{summary}}
+        </p> -->
+      </div>
+  {{/posts}}
+</script>
+
+<div id="postHeader" class='md'></div>
+<div id="target" class='md'></div>
+
+<script>
+const data = {posts:<include src="post/posts.json" />}
+</script>
+
+<!-- <script>
+  function marked(content){
+    return window.markdownit().render(content);
+  }
+</script> -->
+
+<script>
+  (function(){
+    const mdPath = location.hash.substring(location.hash.lastIndexOf("#")+1)
+    const template = document.getElementById('template').innerHTML;
+    const rendered = Mustache.render(template, {posts:data.posts.filter(v => { return v.path.endsWith(location.hash)}) });
+    document.getElementById('postHeader').outerHTML = rendered
+    include.get(mdPath, function (text) {
+      document.getElementById('target').innerHTML = marked(text);
+    })
+  })()
+</script>
+
+
+
+
+<div style="width:80%;margin:80px auto auto auto" id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://simplest-commend.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

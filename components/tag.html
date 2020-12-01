@@ -1,0 +1,71 @@
+<style>
+  .portfolio {
+    width: 80%;
+    margin: auto auto;
+    text-align: center;
+    padding: 30px 30px;
+  }
+
+  .portfolio .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .portfolio .container div {
+    width: 49%;
+    /* border: 1px solid red; */
+  }
+
+  .portfolio img {
+    width: 90%;
+    height: 90%;
+    /* margin: auto auto; */
+  }
+
+  .portfolio a:link,
+  a:active,
+  a:visited {
+    text-decoration: none;
+  }
+
+  .portfolio a:hover {
+    color: #ee983d;
+  }
+  .portfolio a{
+    display: inline-block;
+    color:white
+  }
+
+</style>
+
+<section class="portfolio">
+  <h1>Portfolio</h1>
+  <div class="container">
+    {{#posts}}
+    <div class="item">
+      <a href="{{path}}">
+        <h2>{{title}}</h2>
+        <img src="{{image}}">
+      </a>
+    </div>
+    {{/posts}}
+  </div>
+</section>
+
+<script>
+  const data = { posts: <include src="post/posts.json" /> }
+</script>
+
+<script>
+    (function () {
+      const container = document.querySelector('.container');
+      const posts = data.posts.filter(function (post) {
+        if (post['tags'] && post['tags'].find(tag => { return tag === "portfolio" })) {
+          return true;
+        }
+      })
+      const rendered = Mustache.render(container.innerHTML, { posts: posts });
+      container.innerHTML = rendered;
+    })()
+</script>
