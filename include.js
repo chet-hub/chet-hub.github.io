@@ -208,7 +208,9 @@
       Node.doInclude(node);
       node.addCompletelyLoadListeners(function (n) {
         const html = Node.treeToString(n)
+        document.open()
         document.write(html)
+        document.close()
         log(html)
       })
       return node;
