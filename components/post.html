@@ -16,40 +16,39 @@
       </div>
   {{/posts}}
 </script>
-
+<style>
+    .post {
+        border-bottom: 0px solid white;
+        margin-bottom: 0px;
+    }
+</style>
 <div id="postHeader" class='md widthController'></div>
 <div id="target" class='md widthController'></div>
 
 <script>
-const data = {posts:<include src="post/posts.json" />}
+    const data = {posts:<include src="post/posts.json" />}
 </script>
-
-<!-- <script>
-  function marked(content){
-    return window.markdownit().render(content);
-  }
-</script> -->
 
 <script>
-  (function(){
-    const mdPath = location.hash.substring(location.hash.lastIndexOf("#")+1)
-    const template = document.getElementById('template').innerHTML;
-    const rendered = Mustache.render(template, {posts:data.posts.filter(v => { return v.path.endsWith(location.hash)}) });
-    document.getElementById('postHeader').outerHTML = rendered
-    include.get(mdPath, function (text) {
-      document.getElementById('target').innerHTML = marked(text);
-    })
-  })()
+    (function(){
+        const mdPath = location.hash.substring(location.hash.lastIndexOf("#")+1)
+        const template = document.getElementById('template').innerHTML;
+        const rendered = Mustache.render(template, {posts:data.posts.filter(v => { return v.path.endsWith(location.hash)}) });
+        document.getElementById('postHeader').outerHTML = rendered
+        include.get(mdPath, function (text) {
+            document.getElementById('target').innerHTML = marked(text);
+        })
+    })()
 </script>
 
 
 
 
-<div id="disqus_thread" class="widthController"></div>
+<div id="disqus_thread" class="comment widthController"></div>
 <script>
     /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
     /*
     var disqus_config = function () {
     this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
@@ -57,10 +56,10 @@ const data = {posts:<include src="post/posts.json" />}
     };
     */
     (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://simplest-commend.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
+        var d = document, s = d.createElement('script');
+        s.src = 'https://simplest-commend.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
