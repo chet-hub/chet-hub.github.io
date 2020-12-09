@@ -162,6 +162,12 @@
         // code for old IE browsers
         xhttp = new ActiveXObject("Microsoft.XMLHTTP");
       }
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+          if (fn instanceof Function)
+            fn(this.responseText);
+        }
+      };
       xhttp.open("GET", path + "?time=" + new Date().getTime(), true);
       xhttp.send();
     }
