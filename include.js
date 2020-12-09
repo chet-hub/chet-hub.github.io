@@ -154,13 +154,14 @@
     }
 
     Node.get = function (path, fn) {
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-          if (fn instanceof Function)
-            fn(this.responseText);
-        }
-      };
+      let xhttp;
+      if (window.XMLHttpRequest) {
+        // code for modern browsers
+        xhttp = new XMLHttpRequest();
+      } else {
+        // code for old IE browsers
+        xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
       xhttp.open("GET", path + "?time=" + new Date().getTime(), true);
       xhttp.send();
     }
@@ -208,7 +209,9 @@
       Node.doInclude(node);
       node.addCompletelyLoadListeners(function (n) {
         const html = Node.treeToString(n)
+        document.open()
         document.write(html)
+        document.close()
         log(html)
       })
       return node;
