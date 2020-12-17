@@ -7,6 +7,7 @@ const minify = require('gulp-minify');
 const concatCss = require('gulp-concat-css');
 const htmlReplace = require('gulp-html-replace');
 const concat = require('gulp-concat');
+const gulpCopy = require('gulp-copy');
 
 function clean(cb) {
     del(['./dist/'], cb)
@@ -40,6 +41,7 @@ function javascript(cb) {
     cb()
 }
 
+
 function html(cb) {
     src('./src/*.html')
         .pipe(htmlReplace({
@@ -54,7 +56,7 @@ function watchToProcess() {
     watch('src/css/**.css', {ignoreInitial: false, delay: 500}, cssMinify);
     watch('src/js/**.js', {ignoreInitial: false, delay: 500}, javascript);
     watch('src/**.html', {ignoreInitial: false, delay: 1}, html);
-    watch('src/images.*', {ignoreInitial: false, delay: 1}, imagesMinify);
+    watch('src/images/*.*', {ignoreInitial: false, delay: 1}, imagesMinify);
 }
 
 exports.clean = clean;
