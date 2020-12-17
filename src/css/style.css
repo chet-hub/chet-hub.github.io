@@ -1,0 +1,312 @@
+body {
+    font-family: Nunito, sans-serif
+}
+
+p::-moz-selection {
+    color: white;
+    background-color: #ee983d;
+}
+
+p::selection {
+    color: white;
+    background-color: #ee983d;
+}
+
+.widthController {
+    margin: auto auto;
+    width: 93%;
+}
+
+@media screen and (min-width: 780px) {
+    .widthController {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .widthController {
+        max-width: 80%;
+        width: 1280px;
+    }
+}
+
+
+/* header */
+
+.header, .menu {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.header * {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.header img {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.header .name {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.header .description {
+    font-size: 18px;
+    font-weight: 400;
+    color: #abb7b7;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* memu */
+.underline {
+    border-bottom: 2px solid #ee983d;
+}
+
+.menu {
+    margin-bottom: 50px;
+    border-bottom: 1px solid #F2F4F5;
+}
+
+.menu a:link,
+a:active,
+a:visited {
+    text-decoration: none;
+}
+
+.menu a:hover {
+    color: #ee983d;
+}
+
+.menu a {
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.stickyTop {
+    z-index: 100;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+
+/* portfolio */
+
+
+.portfolio {
+    text-align: center;
+}
+
+.portfolio .container {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+.portfolio .container .item {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 49%;
+    max-width: 500px;
+    border: 1px solid #F2F4F5;
+    background-color: #F2F4F5;
+}
+
+.portfolio img {
+    width: 100%;
+}
+
+.portfolio a:link,
+a:active,
+a:visited {
+    text-decoration: none;
+}
+
+.portfolio a:hover {
+    color: #ee983d;
+}
+
+.portfolio a {
+    display: block;
+    color: black
+}
+
+
+/* post */
+.post {
+    margin-bottom: 80px;
+    border-bottom: 1px solid #F2F4F5;
+    padding-bottom: 30px;
+}
+
+.post img {
+    display: block;
+    width: 100%;
+    filter: grayscale(100%);
+}
+
+.post .title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.post .title a:hover {
+    color: #ee983d;
+}
+
+.post .description {
+    text-align: center;
+    font-size: 19px;
+    font-weight: 400;
+    color: #abb7b7;
+    margin-bottom: 30px;
+}
+
+.post .summary {
+    font-size: 19px;
+    color: #abb7b7;
+    line-height: 1.6;
+}
+
+.post .button {
+    display: inline-block;
+    padding: 9px 10px 10px;
+    border-radius: 3px;
+    background: #ee983d;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.post a:link, a:active, a:visited {
+    text-decoration: none;
+}
+
+.post a:hover {
+    background-color: rgb(238, 186, 130)
+}
+
+.md img {
+    width: 100%
+}
+
+/* disqus_thread */
+
+.comment {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+
+/* contact */
+
+.contact .title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.contact .title a:hover {
+    color: #ee983d;
+}
+
+.contact .description {
+    text-align: center;
+    font-size: 19px;
+    font-weight: 400;
+    color: #abb7b7;
+    margin-bottom: 30px;
+}
+
+.contact * {
+    box-sizing: border-box;
+}
+
+input[type=text], input[type=email],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ee983d;
+    border-radius: 4px;
+    /* box-sizing: border-box; */
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #ee983d;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #ee983d;
+}
+
+.container {
+    border-radius: 5px;
+    /* background-color: #f2f2f2; */
+    padding: 20px;
+}
+
+
+/* footer */
+
+
+.footer {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.footer * {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.footer .buttons a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #abb7b7;
+}
+
+.footer .buttons a:hover {
+    background-color: #ee983d
+}
+
+.footer .buttons i {
+    margin-top: 15px;
+    vertical-align: middle;
+    color: white;
+    font-size: 20px;
+}
+
+.footer .copyright {
+    color: #abb7b7;
+    font-size: 13px;
+    font-weight: 400;
+}

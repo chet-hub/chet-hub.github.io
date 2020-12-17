@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- build:js -->
+    <script src="js/app.js"></script>
+    <script src="js/mustache.min.js"></script>
+    <script src="js/marked.min.js"></script>
+    <!-- endbuild -->
+    <!-- build:css -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <!-- endbuild -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e69bc3937e.js" crossorigin="anonymous"></script>
+    <title>Simplest - Post list</title>
+</head>
+
+<body>
+
+<div class="header">
+    <img src="images/header.jpg">
+    <p class="name">Chet</p>
+    <p class="description">Log something in my mind.</p>
+</div>
+<div class="menu stickyTop">
+    <a href="index.html">Home</a>
+    <a href="posts.html">Posts</a>
+    <a href="post.html#post/about_me.md">About</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+
+<script id="template_postList" type="x-tmpl-mustache">
+  {{#posts}}
+      <div class="post widthController">
+        <p class="title">
+          {{title}}
+        </p>
+        <p class="description">
+          {{author}} / {{date}}
+        </p>
+        <img src="{{image}}" alt="" srcset="">
+        <p class='summary'>
+          {{summary}}
+        </p>
+        <a href="{{path}}" class="button">Read More</a>
+      </div>
+  {{/posts}}
+
+</script>
+
+<div id="target_postList"></div>
+
+
+<div class="footer">
+    <div class="buttons">
+        <a href="#"><i class="fa fa-fw fa-twitter"></i></a>
+        <a href=""><i class="fa fa-fw fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-fw fa-stack-overflow"></i></a>
+        <a href=""><i class="fa fa-fw fa-bitbucket"></i></a>
+        <a href="https://github.com/chet-hub"><i class="fa fa-fw fa-github"></i></a>
+    </div>
+    <p class='copyright'>
+        © 2020 Chet
+    </p>
+</div>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-235DCVGC0V"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-235DCVGC0V');
+</script>
+</body>
+
+</html>
