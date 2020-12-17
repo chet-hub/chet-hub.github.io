@@ -7,7 +7,6 @@ const minify = require('gulp-minify');
 const concatCss = require('gulp-concat-css');
 const htmlReplace = require('gulp-html-replace');
 const concat = require('gulp-concat');
-const gulpCopy = require('gulp-copy');
 
 function clean(cb) {
     del(['./dist/'], cb)
