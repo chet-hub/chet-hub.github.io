@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FunRTC</title>
+    <script>
+        /**
+         * Ajax request
+         * @param url
+         * @param str
+         * @returns {Promise<unknown>}
+         * @constructor
+         * Example
+         *  PostData('//localhost:8080/msg', "jsonString").then(console.log);
+         */
+        function PostData(url, str) {
+            return new Promise((ok, error) => {
+                const xhr = new XMLHttpRequest();
+                xhr.onload = () => {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        ok(xhr.responseText);
+                    } else {
+                        error(xhr.status + ":" + xhr.statusText)
+                    }
+                }
+                xhr.open('POST', url, true);
+                xhr.setRequestHeader('Content-Type', 'text/plain');
+                xhr.send(str);
+            })
+        }
+
+        /**
+         * load js files in github project
+         * @param urls
+         * @returns {Promise<unknown[]>}
+         * @constructor
+         */
+        function LoadScriptFromGithub(urls) {
+            function GetData(url, str) {
+                return new Promise((ok, error) => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.onload = () => {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            ok(xhr.responseText);
+                        } else {
+                            error(xhr.status + ":" + xhr.statusText)
+                        }
+                    }
+                    xhr.open('GET', url, true);
+                    xhr.setRequestHeader('Content-Type', 'text/plain');
+                    xhr.send(str);
+                })
+            }
+
+            const container = document.getElementsByTagName('head')[0]
+            return Promise.all(urls.map(u => {
+                return GetData(u).then((text) => {
+                    const script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.innerHTML = text;
+                    return script
+                })
+            })).then(scripts => {
+                scripts.map(s => {
+                    container.appendChild(s);
+                })
+            })
+        }
+
+        LoadScriptFromGithub(["https://raw.githubusercontent.com/chet-hub/FunRTC/main/js/FunRTC.js"]).then(() => {
+            FunRTC.ToConnect("B", function (connection, channel) {
+                channel.onopen = () => {
+                    console.log('A channel opened')
+                    setInterval(() => {
+                        channel.send(Math.random())
+                        FunRTC.Send("B", Math.random())
+                    }, 2000);
+                }
+                channel.onmessage = (e) => {
+                    console.log(`Message from A '${channel.id}' : '${e.data}'`)
+                }
+            }).then(applyPaper => {
+                return FunRTC.Accept("A", applyPaper, function (connection, channel) {
+                    channel.onopen = () => {
+                        console.log('B channel opened')
+                        setInterval(() => {
+                            channel.send(Math.random())
+                            FunRTC.Send("A", Math.random())
+                        }, 2000);
+                    }
+                    channel.onmessage = (e) => {
+                        console.log(`Message from B '${channel.id}' : '${e.data}'`)
+                    }
+                })
+            }).then((approvePaper) => {
+                return FunRTC.DoConnect("B", approvePaper)
+            }).catch(console.error)
+        })
+
+
+    </script>
+</head>
+<body>
+
+<div>
+    <pre>
+
+
+Example - Js connect js in one page
+
+        // Copy and paste the js codes in your Chrome console
+        let applyPaper = await FunRTC.ToConnect("B")
+                        let approvePaper = await FunRTC.Accept("A",applyPaper)
+        await FunRTC.DoConnect("B",approvePaper)
+
+        applyPaper = await FunRTC.ToConnect("C")
+                        approvePaper = await FunRTC.Accept("B",applyPaper)
+        await FunRTC.DoConnect("C",approvePaper)
+
+        //after the connect established
+        FunRTC.Send("B","Hi B")
+                        FunRTC.Send("A","Hi A")
+        FunRTC.Send("C","Hi C")
+
+        or
+
+        FunRTC.ToConnect("B", function (connection, channel) {
+                channel.onopen = () => {
+                    console.log('A channel opened')
+                    setInterval(() => {
+                        channel.send(Math.random())
+                        FunRTC.Send("B", Math.random())
+                    }, 2000);
+                }
+                channel.onmessage = (e) => {
+                    console.log(`Message from A '${channel.id}' : '${e.data}'`)
+                }
+            }).then(applyPaper => {
+                return FunRTC.Accept("A", applyPaper, function (connection, channel) {
+                    channel.onopen = () => {
+                        console.log('B channel opened')
+                        setInterval(() => {
+                            channel.send(Math.random())
+                            FunRTC.Send("A", Math.random())
+                        }, 2000);
+                    }
+                    channel.onmessage = (e) => {
+                        console.log(`Message from B '${channel.id}' : '${e.data}'`)
+                    }
+                })
+            }).then((approvePaper) => {
+                return FunRTC.DoConnect("B", approvePaper)
+            }).catch(console.error)
+
+
+Example - Js connect golang
+
+        // go test -run TestConnection_as_Client
+
+        // Copy and paste the js codes in your Chrome console
+        let applyPaper = await FunRTC.ToConnect("Golang server")
+        const approvePaper = await PostData('//localhost:8080/msg', applyPaper)
+        await FunRTC.DoConnect("Golang server", approvePaper)
+
+Example - golang connect js
+
+        // go test -run TestConnection_as_Server
+
+        // Copy and paste the js codes in your Chrome console
+        const applyPaper = await PostData('//localhost:8080/msg', "getApplyPaper")
+        const approvePaper = await FunRTC.Accept("golang client",applyPaper)
+        const connect = await PostData('//localhost:8080/msg', approvePaper)
+
+    </pre>
+</div>
+
+
+</body>
+</html>
