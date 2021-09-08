@@ -68,33 +68,34 @@
         }
 
         LoadScriptFromGithub(["https://raw.githubusercontent.com/chet-hub/FunRTC/main/js/FunRTC.js"]).then(() => {
-            FunRTC.ToConnect("B", function (connection, channel) {
-                channel.onopen = () => {
-                    console.log('A channel opened')
-                    setInterval(() => {
-                        channel.send(Math.random())
-                        FunRTC.Send("B", Math.random())
-                    }, 2000);
-                }
-                channel.onmessage = (e) => {
-                    console.log(`Message from A '${channel.id}' : '${e.data}'`)
-                }
-            }).then(applyPaper => {
-                return FunRTC.Accept("A", applyPaper, function (connection, channel) {
-                    channel.onopen = () => {
-                        console.log('B channel opened')
-                        setInterval(() => {
-                            channel.send(Math.random())
-                            FunRTC.Send("A", Math.random())
-                        }, 2000);
-                    }
-                    channel.onmessage = (e) => {
-                        console.log(`Message from B '${channel.id}' : '${e.data}'`)
-                    }
-                })
-            }).then((approvePaper) => {
-                return FunRTC.DoConnect("B", approvePaper)
-            }).catch(console.error)
+            // FunRTC.ToConnect("B", function (connection, channel) {
+            //     channel.onopen = () => {
+            //         console.log('A channel opened')
+            //         setInterval(() => {
+            //             channel.send(Math.random())
+            //             FunRTC.Send("B", Math.random())
+            //         }, 2000);
+            //     }
+            //     channel.onmessage = (e) => {
+            //         console.log(`Message from A '${channel.id}' : '${e.data}'`)
+            //     }
+            // }).then(applyPaper => {
+            //     return FunRTC.Accept("A", applyPaper, function (connection, channel) {
+            //         channel.onopen = () => {
+            //             console.log('B channel opened')
+            //             setInterval(() => {
+            //                 channel.send(Math.random())
+            //                 FunRTC.Send("A", Math.random())
+            //             }, 2000);
+            //         }
+            //         channel.onmessage = (e) => {
+            //             console.log(`Message from B '${channel.id}' : '${e.data}'`)
+            //         }
+            //     })
+            // }).then((approvePaper) => {
+            //     return FunRTC.DoConnect("B", approvePaper)
+            // }).catch(console.error)
+            console.log("https://raw.githubusercontent.com/chet-hub/FunRTC/main/js/FunRTC.js -- loaded")
         })
 
 
