@@ -3,7 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
-    <style>html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,[type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}</style>
+    <style>html {
+        line-height: 1.15;
+        -webkit-text-size-adjust: 100%
+    }
+
+    body {
+        margin: 0
+    }
+
+    main {
+        display: block
+    }
+
+    h1 {
+        font-size: 2em;
+        margin: .67em 0
+    }
+
+    hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible
+    }
+
+    pre {
+        font-family: monospace, monospace;
+        font-size: 1em
+    }
+
+    a {
+        background-color: transparent
+    }
+
+    abbr[title] {
+        border-bottom: none;
+        text-decoration: underline;
+        text-decoration: underline dotted
+    }
+
+    b, strong {
+        font-weight: bolder
+    }
+
+    code, kbd, samp {
+        font-family: monospace, monospace;
+        font-size: 1em
+    }
+
+    small {
+        font-size: 80%
+    }
+
+    sub, sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline
+    }
+
+    sub {
+        bottom: -.25em
+    }
+
+    sup {
+        top: -.5em
+    }
+
+    img {
+        border-style: none
+    }
+
+    button, input, optgroup, select, textarea {
+        font-family: inherit;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0
+    }
+
+    button, input {
+        overflow: visible
+    }
+
+    button, select {
+        text-transform: none
+    }
+
+    button, [type="button"], [type="reset"], [type="submit"] {
+        -webkit-appearance: button
+    }
+
+    button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
+        border-style: none;
+        padding: 0
+    }
+
+    button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focusring, [type="submit"]:-moz-focusring {
+        outline: 1px dotted ButtonText
+    }
+
+    fieldset {
+        padding: .35em .75em .625em
+    }
+
+    legend {
+        box-sizing: border-box;
+        color: inherit;
+        display: table;
+        max-width: 100%;
+        padding: 0;
+        white-space: normal
+    }
+
+    progress {
+        vertical-align: baseline
+    }
+
+    textarea {
+        overflow: auto
+    }
+
+    [type="checkbox"], [type="radio"] {
+        box-sizing: border-box;
+        padding: 0
+    }
+
+    [type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button {
+        height: auto
+    }
+
+    [type="search"] {
+        -webkit-appearance: textfield;
+        outline-offset: -2px
+    }
+
+    [type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none
+    }
+
+    ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        font: inherit
+    }
+
+    details {
+        display: block
+    }
+
+    summary {
+        display: list-item
+    }
+
+    template {
+        display: none
+    }
+
+    [hidden] {
+        display: none
+    }</style>
     <style>
         body {
             margin: 0;
@@ -44,7 +201,20 @@
             margin-left: -1em;
         }
 
-        page {
+        .skill {
+            display: inline-block;
+            border: 2px solid gray;
+            border-radius: 5px;
+            margin: 2px;
+            padding: 5px 5px 5px 5px;
+        }
+
+        .small {
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .page {
             box-sizing: border-box;
             -moz-box-sizing: border-box;
             width: 21cm;
@@ -76,16 +246,26 @@
         }
 
         .group_title {
-            font-family: "Times New Roman";
+            font-family: "Times New Roman", serif;
             font-weight: bold;
             font-size: 10.5pt;
             border-bottom: black 2px solid;
             /*width: 101%;*/
             /*margin-left: -1.02%;*/
             /*padding-left: 1%;*/
-            margin-bottom: 13pt;
-            margin-top: 13pt;
-            text-align: right;
+            margin-bottom: 2pt;
+        }
+
+        .photo img {
+            width: 100px;
+            margin-right: 50px;
+            border-radius: 50%;
+        }
+
+        .nobreakline {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         section {
@@ -93,41 +273,235 @@
             /*border: blue 1px solid;*/
         }
     </style>
-    <title>Chet - website</title>
+    <title>Chao Chen - Resume</title>
 </head>
 <body>
 
-<page>
+<div class="page">
     <section>
         <div class="row_box">
-            <div class="thick_font" style="font-size: 35pt">Chet</div>
+            <div class="photo"><img src="photo.jpeg" /></div>
+            <div class="thick_font nobreakline" style="font-size: 23px">Chao Chen</div>
             <pre>
-                Github:     chet-hub.github.io
-                Website:    github.com/chet-hub</pre>
+                Phone:               4313420321
+                E-mail:      cc861010@gmail.com
+                Github:      chet-hub.github.io
+                Website:    github.com/chet-hub
+                Telegram:       t.me/chet_cloud</pre>
         </div>
     </section>
 
-    <div class="group_title">Toy Projects</div>
+    <div class="group_title">Profile</div>
 
     <section class="section">
-        <div class="row_box thick_font">
-            <div>FunRTC</div>
-        </div>
-        <ul class="dash">
+        <ul>
             <li>
-                <a href="https://github.com/chet-hub/FunRTC/blob/main/README.md">https://github.com/chet-hub/FunRTC</a>
+                Diligent software developer with a passion looking for software development position.
             </li>
             <li>
-                Three lines codes implement pure P2P chat.
+                Proficient in <span class="thick_font">solving problems</span> in development.
             </li>
             <li>
-                Javascript and golang FunRTC are available
+                <span class="thick_font">Enjoys</span> writing readable code and pursuing elegant design.
             </li>
             <li>
-                Based on the WebRTC
+                High <span class="thick_font">ability</span> to learn new technologies and skills in a short time and
+                apply them.
+            </li>
+            <li>
+                <span class="thick_font">Passionate</span> for improving user experience in work, such as UI and API.
             </li>
         </ul>
     </section>
+
+    <div class="group_title">Technical skills</div>
+    <section class="section">
+        <span class="skill">ChatGPT</span>
+        <!-- front end-->
+        <span class="skill">Html/CSS/JS</span>
+        <span class="skill">React/Angular/Vue</span>
+        <span class="skill">Nodejs</span>
+        <span class="skill">Webpack</span>
+        <span class="skill">Glup</span>
+
+        <!-- back end-->
+        <span class="skill">Java</span>
+        <span class="skill">Jenkins</span>
+        <span class="skill">Git</span>
+        <span class="skill">Spring boot/Spring cloud</span>
+        <span class="skill">Golang</span>
+        <span class="skill">Docker</span>
+        <span class="skill">CI/CD</span>
+
+        <!-- database-->
+        <span class="skill">T-SQL/MySQL/SQLServer</span>
+        <span class="skill">Hbase</span>
+        <span class="skill">Hadoop</span>
+
+        <!-- linux -->
+        <span class="skill">Linux</span>
+        <span class="skill">Shell</span>
+        <span class="skill">Vi</span>
+        <span class="skill">i3wm</span>
+        <span class="skill">SSH</span>
+        <span class="skill">WebRTC</span>
+
+        <!-- c# -->
+        <span class="skill">C#</span>
+        <span class="skill">EF Core</span>
+        <span class="skill">Unity3d</span>
+
+        <!-- low level development-->
+        <span class="skill">Python</span>
+        <span class="skill">C/C++</span>
+        <span class="skill">Rust</span>
+    </section>
+    
+    
+    <div class="group_title">Experience</div>
+
+    <section class="section">
+        <div class="row_box thick_font">
+            <div>Full Stack developer</div>
+            <div class="small">Artis Real Estate Investment Trust - Winnipeg</div>
+            <div>2022/01 - Present</div>
+        </div>
+        <ul>
+            <li> 
+                Web oprations work, include websites deployment, operation, maintenance, and upgrade
+            </li>
+            <li> 
+                Developed a template engine to convert wordpress websites to Jamstack-based pure static website, improved performance dramatically
+            </li>
+            <li> 
+                Developed a kiosk project, which can deliver web content to remote screens dynamically, reducing manpower and equipment deployment costs
+            </li>
+        </ul>
+    </section>
+
+
+    <section class="section">
+        <div class="row_box thick_font">
+            <div>Software developer internship</div>
+            <div class="small">City Of Winnipeg</div>
+            <div>2021/06 - 3 mons</div>
+        </div>
+        <ul>
+            <li>
+                Developed a web application project (C# + react-admin) as a full stack software developer
+            </li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <div class="row_box thick_font">
+            <div>Intermediate Architect</div>
+            <div class="small">Beijing WangKu Information Technology Co., Ltd.</div>
+            <div>2015/10 - 3 yrs 6 mos</div>
+        </div>
+        <ul>
+            <li>Refactor the Monolithic services to microservice, increasing the availability of the system from 95% to
+                99.5%
+            </li>
+            <li>As a leader to build a reusable component library for pc and mobile front-end UI, the front-end team
+                decreased from 15 to 7 people.
+            </li>
+            <li>Technical training for software developers</li>
+            <li>Tackling difficult problems and formulating technical plans</li>
+        </ul>
+    </section>
+
+
+    <section class="section">
+        <div class="row_box thick_font">
+            <div>Software Engineer</div>
+            <div class="small">Beijing Ruihe Zhidian Technology Co., Ltd.</div>
+            <div>2015/05 - 6 mos</div>
+        </div>
+        <ul>
+            <li>
+                Using cross-platform technology for the App development to save 40% of labor costs in the UI team
+            </li>
+            <li>
+                Back end service development, including payment
+            </li>
+            <li>
+                Wechat app development, Increased application traffic by 80%
+            </li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <div class="row_box thick_font">
+            <div>Software Developer</div>
+            <div class="small">Beijing Jingkedian Technology Co., Ltd.</div>
+            <div>2013/12 - 1 yrs 2 mos</div>
+        </div>
+        <ul>
+            <li>
+                Nutch and hadoop custom development for a crawler project
+            </li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <div class="row_box thick_font">
+            <div>Software Developer</div>
+            <div class="small">Hangzhou Dechanglong Information Technology Co., Ltd.</div>
+            <div>2012/08 - 1 yrs 4 mos</div>
+        </div>
+        <ul>
+            <li>
+                OA/ERP/CRM/CMS development for the construction industry companies
+            </li>
+        </ul>
+    </section>
+    
+
+
+</div>
+
+<div class="page">
+
+
+    <div class="group_title">Education</div>
+
+    <section class="section">
+        <div class="row_box thick_font">
+            <div>Software Developer</div>
+            <div class="small">Manitoba Institute of Trades and Technology</div>
+            <div>2020/08 - 1 yrs</div>
+        </div>
+        <ul>
+            <li>
+                <span class="thick_font">Course: </span>
+                Full stack developer, focus on front end and back end develop (GPA:3.8)
+            </li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <div class="row_box thick_font">
+            <div>Bachelor's degree</div>
+            <div class="small">Hubei Polytechnic University</div>
+            <div>2004/09 - 4 yrs</div>
+        </div>
+        <ul>
+            <li>
+                <span class="thick_font">Major: </span>
+                Civil engineering management
+            </li>
+            <li>
+                <span class="thick_font">Course: </span>
+                Linear Algebra, Advanced Mathematics, Statistics, Geometry, Mechanics, Computer Fundamentals,
+                Engineering Project Management, Architecture and so on
+            </li>
+        </ul>
+
+    </section>
+
+
+    <div class="group_title">Recent toy projects</div>
 
     <section class="section">
         <div class="row_box thick_font">
@@ -151,19 +525,50 @@
 
     <section class="section">
         <div class="row_box thick_font">
-            <div>clang-tools</div>
+            <div>FunRTC</div>
         </div>
         <ul class="dash">
             <li>
-                <a href="Https://github.com/chet-hub/clang-tools">Https://github.com/chet-hub/clang-tools</a>
+                <a href="https://github.com/chet-hub/FunRTC/blob/main/README.md">https://github.com/chet-hub/FunRTC</a>
             </li>
             <li>
-                This project contains helpful c/c++ tools for game development
+                Three lines codes implement pure P2P chat.
+            </li>
+            <li>
+                Javascript and golang FunRTC are available
+            </li>
+            <li>
+                Based on the WebRTC
             </li>
         </ul>
     </section>
 
+    <section class="section">
+        <div class="row_box thick_font">
+            <div>Indie Game - is developing</div>
+        </div>
+        <ul class="dash">
+            <li>
+                Develop a 2d game using Rust-lang and ECS patten.
+            </li>
+            <li>
+                Using Bevy - a data-driven game engine built in Rust
+            </li>
+        </ul>
+    </section>
 
-</page>
+    <div class="group_title">Mottos</div>
+    <section class="section">
+        <ul>
+            <li>Life is a test</li>
+            <li>Everything is possible</li>
+            <li>Coding like doing artistic creation work</li>
+            <li>Bytes are the only thing you will leave in this world, not bone ashes</li>
+        </ul>
+    </section>
+
+</div>
+
+
 </body>
 </html>
